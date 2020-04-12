@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias -s py=vim #opens ruby files in vim
+alias -s py=vim #opens python files in vim
 alias v=vim
 
 DEFAULT_USER=`whoami`
@@ -107,6 +107,7 @@ DEFAULT_USER=`whoami`
 [[ -z "$TMUX" ]] && { tmux attach || exec tmux new-session && exit; }
 
 TERM=screen-256color
+export LC_COLLATE=C.UTF-8
 
 conda activate dev
 
