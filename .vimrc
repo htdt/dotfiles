@@ -39,7 +39,7 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
-" let python_highlight_all=1
+let python_highlight_all=1
 syntax on
 set background=dark
 colorscheme iceberg
@@ -53,6 +53,8 @@ set tabstop=4
 set shiftwidth=4
 set splitbelow
 set splitright
+
+let g:UltiSnipsExpandTrigger = "<Nop>"
 
 " set hlsearch
 let g:incsearch#auto_nohlsearch = 1
