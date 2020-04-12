@@ -1,42 +1,4 @@
-set nocompatible              " required
-filetype off                  " required
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'neoclide/coc.nvim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'kshenoy/vim-signature'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'vim-python/python-syntax'
-Plugin 'thaerkh/vim-indentguides'
-Plugin 'SirVer/ultisnips'
-Plugin 'mbbill/undotree'
-
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'haishanh/night-owl.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'mhartington/oceanic-next'
-Plugin 'cocopon/iceberg.vim'
-Plugin 'sainnhe/vim-color-forest-night'
-Plugin 'zeis/vim-kolor'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Use the below highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+packadd iceberg.vim
 
 set encoding=utf-8
 let python_highlight_all=1
