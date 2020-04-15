@@ -64,3 +64,9 @@
 [submodule "colors/opt/vim-kolor"]
 	path = colors/opt/vim-kolor
 	url = https://github.com/zeis/vim-kolor.git
+[submodule "plugins/start/vim-ripgrep"]
+	path = plugins/start/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep
+[submodule "plugins/start/vim-surround"]
+	path = plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
