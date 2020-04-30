@@ -8,5 +8,5 @@ cp ~/.config/coc/extensions/package.json $REPO/.config/coc/extensions/
 
 cp ~/.vim/coc-settings.json $REPO/.vim/
 cp ~/.vim/coc.vim $REPO/.vim/
-cp -r ~/.vim/UltiSnips $REPO/.vim/UltiSnips
+cp -r ~/.vim/UltiSnips $REPO/.vim/
 cp ~/.vim/pack/.gitmodules $REPO/.vim/pack
