@@ -2,6 +2,11 @@ set lazyredraw
 set smartcase
 set ignorecase
 set undofile
+set backup
+
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp//
 
 filetype indent on
 set encoding=utf-8
@@ -17,12 +22,17 @@ set tabstop=4
 set shiftwidth=4
 set splitbelow
 set splitright
+set smarttab
+set expandtab
 
-packadd iceberg.vim
 set background=dark
+packadd iceberg.vim
 colorscheme iceberg
 
 let g:UltiSnipsExpandTrigger = "<Nop>"
+
+autocmd FileType python setlocal commentstring=#\ %s
+autocmd FileType yaml setlocal commentstring=#\ %s
 
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
@@ -71,8 +81,10 @@ map <Leader><Leader> :write<CR>
 map <Leader>d :Explore<CR>
 map <Leader>e :edit 
 map <Leader>r :reg<CR>
-xnoremap \ I# <ESC>
 vnoremap p "_dP
+nnoremap <leader>c *``cgn
+map [[ gg
+map ]] G
 
 no <down> <Nop>
 no <left> <Nop>
