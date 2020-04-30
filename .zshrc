@@ -1,8 +1,10 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/dev/_scripts:$PATH
-export PATH=$HOME/miniconda3/bin:$PATH
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && { tmux attach || exec tmux new-session && exit; }
 
-. /home/i/miniconda3/etc/profile.d/conda.sh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/dev/_scripts:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/i/.oh-my-zsh"
@@ -10,7 +12,7 @@ export ZSH="/home/i/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
@@ -29,8 +31,14 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -86,9 +94,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -97,26 +102,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias -s py=vim #opens python files in vim
 alias v=vim
 
 DEFAULT_USER=`whoami`
 
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && { tmux attach || exec tmux new-session && exit; }
-
 TERM=screen-256color
 export LC_COLLATE=C.UTF-8
 
-conda activate dev
+source ~/.env/bin/activate
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/i/google-cloud-sdk/path.zsh.inc' ]; then . '/home/i/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/i/app/google-cloud-sdk/path.zsh.inc' ]; then . '/home/i/app/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/i/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/i/google-cloud-sdk/completion.zsh.inc'; fi
-
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/zsh/vendor-completions/_fzf
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+if [ -f '/home/i/app/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/i/app/google-cloud-sdk/completion.zsh.inc'; fi
