@@ -1,3 +1,9 @@
+let g:coc_global_extensions = [
+    \'coc-python',
+    \'coc-highlight',
+    \'coc-ultisnips'
+    \]
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
