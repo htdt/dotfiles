@@ -1,0 +1,11 @@
+https://github.com/jnurmine/Zenburn.git
+https://github.com/morhetz/gruvbox.git
+https://github.com/cocopon/iceberg.vim.git
+https://github.com/nanotech/jellybeans.vim.git
+https://github.com/haishanh/night-owl.vim.git
+https://github.com/arcticicestudio/nord-vim.git
+https://github.com/mhartington/oceanic-next.git
+https://github.com/sainnhe/vim-color-forest-night.git
+https://github.com/altercation/vim-colors-solarized.git
+https://github.com/zeis/vim-kolor.git
+https://github.com/jdkanani/vim-material-theme.git

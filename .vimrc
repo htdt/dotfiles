@@ -17,22 +17,33 @@ let mapleader=" "
 set laststatus=2
 set showcmd
 set scrolloff=10
-set listchars=""
+"set listchars=""
 set tabstop=4
 set shiftwidth=4
 set splitbelow
 set splitright
 set smarttab
 set expandtab
+set termguicolors
+set listchars=trail:-
+set backspace=indent,eol,start
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set background=dark
-packadd iceberg.vim
-colorscheme iceberg
-
-let g:UltiSnipsExpandTrigger = "<Nop>"
+packadd vim-material-theme
+colorscheme material-theme
 
 autocmd FileType python setlocal commentstring=#\ %s
 autocmd FileType yaml setlocal commentstring=#\ %s
+autocmd FileType typescript setlocal commentstring=//\ %s
+
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
+autocmd FileType typescript setlocal tabstop=2 shiftwidth=2
+autocmd FileType html setlocal tabstop=2 shiftwidth=2
+autocmd FileType json setlocal tabstop=2 shiftwidth=2
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
@@ -50,7 +61,7 @@ map g# <Plug>(incsearch-nohl-g#)
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'iceberg'
+let g:airline_theme = 'deus'
 
 autocmd BufWritePost * GitGutter
 nmap ]h <Plug>(GitGutterNextHunk)
@@ -86,6 +97,18 @@ nnoremap <leader>c *``cgn
 map [[ gg
 map ]] G
 
+" moving lines
+nnoremap <c-j> :m .+1<CR>== 
+nnoremap <c-k> :m .-2<CR>== 
+inoremap <c-j> <Esc>:m .+1<CR>==gi 
+inoremap <c-k> <Esc>:m .-2<CR>==gi 
+vnoremap <c-j> :m '>+1<CR>gv=gv 
+vnoremap <c-k> :m '<-2<CR>gv=gv
+
+if executable('rg') 
+	set grepprg=rg\ --vimgrep\ --hidden
+endif
+
 no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
@@ -102,3 +125,4 @@ vno <right> <Nop>
 vno <up> <Nop>
 
 source ~/.vim/coc.vim
+source ~/.vim/ab.vim

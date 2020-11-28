@@ -1,10 +1,11 @@
 # If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && { tmux attach || exec tmux new-session && exit; }
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && { tmux attach || exec tmux new-session && exit; }
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/dev/_scripts:$PATH
+export PATH=~/.npm-global/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/i/.oh-my-zsh"
@@ -44,7 +45,7 @@ ZSH_THEME="agnoster"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -116,3 +117,6 @@ if [ -f '/home/i/app/google-cloud-sdk/path.zsh.inc' ]; then . '/home/i/app/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/i/app/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/i/app/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

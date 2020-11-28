@@ -38,6 +38,11 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 endif
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -50,8 +55,8 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-hi CocHighlightText ctermbg=237
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+" hi CocHighlightText ctermbg=237
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
