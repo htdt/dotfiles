@@ -1,7 +1,9 @@
+" ~/.config/coc/extensions/package.json
 let g:coc_global_extensions = [
-    \'coc-python',
     \'coc-highlight',
-    \'coc-ultisnips'
+    \'coc-python',
+    \'coc-tslint',
+    \'coc-tsserver'
     \]
 
 " TextEdit might fail if hidden is not set.
