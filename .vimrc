@@ -1,6 +1,13 @@
 " ----------------------------------------------------------------------------
 " Basic Settings
 " ----------------------------------------------------------------------------
+
+" Ensure backup directory exists
+let s:vim_tmp_dir = expand('~/.vim/tmp')
+if !isdirectory(s:vim_tmp_dir)
+  call mkdir(s:vim_tmp_dir, 'p')
+endif
+
 set lazyredraw                          " Don't redraw screen during macros (faster)
 set smartcase                           " Case-sensitive search if query contains uppercase
 set ignorecase                          " Case-insensitive search by default
@@ -40,6 +47,14 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
+
+" for fzf :Files (Space-D)
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --no-ignore '
+  \ . '--glob "!.git" '
+  \ . '--glob "!__pycache__" '
+  \ . '--glob "!.pytest_cache" '
+  \ . '--glob "!*.pyc" '
+  \ . '--glob "!node_modules"'
 
 " Hide GUI elements in gvim
 if has('gui_running')
@@ -158,7 +173,6 @@ map <Leader>x :bp\|bd #<CR>
 " Close buffer without closing window with Space-x
 map <Leader><Leader> :write<CR>
 " Save file with Space-Space
-" fzf (:FZF <tab> for more)
 map <Leader>d :Files<CR>
 " Fuzzy find files with Space-d
 map <Leader>e :Buffers<CR>
