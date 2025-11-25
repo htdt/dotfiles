@@ -36,7 +36,9 @@ set backspace=indent,eol,start          " Allow backspace over everything in ins
 set wildmenu                            " Enhanced command-line completion
 set cursorline                          " Highlight current line
 set showmatch                           " Briefly jump to matching bracket
+set autoread                            " Auto-reload files
 set guifont=FiraCode\ Nerd\ Font\ 12
+set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
 set clipboard=unnamedplus               " Use system clipboard for all operations
 set hlsearch                            " Highlight all search matches
 set incsearch                           " Show search matches as you type
@@ -94,8 +96,11 @@ Plug 'tpope/vim-fugitive'               " Git integration (:Git, :Gblame, :Gdiff
 Plug 'tpope/vim-commentary'             " Comment toggling with gcc
 Plug 'mbbill/undotree'                  " Visual undo history tree (<Leader>t)
 Plug 'kshenoy/vim-signature'            " Show marks (bookmarks) in sign column
-Plug 'vim-python/python-syntax'         " Enhanced Python syntax highlighting
-Plug 'leafgarland/typescript-vim'       " TypeScript syntax highlighting
+
+Plug 'vim-python/python-syntax'
+Plug 'leafgarland/typescript-vim'
+Plug 'evanleck/vim-svelte'
+Plug 'pangloss/vim-javascript'  " recommended as a dependency
 call plug#end()
 
 " ----------------------------------------------------------------------------
