@@ -1,0 +1,24 @@
+font-size = 12
+font-family = "FiraCode Nerd Font"
+theme = "Rose Pine Moon"
+window-padding-x = 2
+window-padding-y = 2
+copy-on-select = true
+window-decoration = false
+window-width = 200
+window-height = 60
+fullscreen = true
+
+# Hide cursor while typing
+mouse-hide-while-typing = true
+
+# Prevent accidental close with running processes
+confirm-close-surface = true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Shell integration
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
