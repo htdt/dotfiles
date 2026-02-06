@@ -7,22 +7,20 @@ Neovim, Ghostty, and Zsh configuration.
 ### apt
 
 ```bash
-sudo apt install zsh ripgrep xclip zsh-autosuggestions zsh-syntax-highlighting
+sudo apt install curl zsh ripgrep xclip zsh-autosuggestions zsh-syntax-highlighting
 ```
 
-### Ghostty (PPA)
+### Ghostty
 
 ```bash
-sudo add-apt-repository ppa:ghostty/release
-sudo apt update && sudo apt install ghostty
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
 ```
 
 ### Neovim (via bob)
 
 ```bash
 # Install bob (neovim version manager)
-# Download latest binary from https://github.com/MordechaiHadad/bob/releases
-sudo install bob /usr/local/bin/
+curl -fsSL https://raw.githubusercontent.com/MordechaiHadad/bob/master/scripts/install.sh | bash
 
 # Install neovim
 bob install stable

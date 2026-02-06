@@ -28,7 +28,7 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.smarttab = true
 
--- Files/Backup
+-- Files/Backup @ ~/.local/share/nvim
 opt.undofile = true
 opt.backup = true
 opt.backupdir = vim.fn.stdpath("data") .. "/backup//"
