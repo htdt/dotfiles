@@ -251,7 +251,7 @@ map("n", "<Leader><Leader>", ":write<CR>", { desc = "Save file" })
 
 -- Telescope mappings (replacing your fzf mappings)
 local builtin = require("telescope.builtin")
-map("n", "<Leader>d", builtin.find_files, { desc = "Find files" })
+map("n", "<Leader>d", function() builtin.find_files({ hidden = true }) end, { desc = "Find files" })
 map("n", "<Leader>e", builtin.buffers, { desc = "Find buffers" })
 map("n", "<Leader>r", builtin.live_grep, { desc = "Live grep" })
 map("n", "<Leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search buffer" })
