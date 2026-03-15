@@ -11,9 +11,7 @@ opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
 opt.showmatch = true
-opt.showcmd = true
 opt.scrolloff = 10
-opt.termguicolors = true
 opt.splitbelow = true
 opt.splitright = true
 opt.signcolumn = "yes"
@@ -26,7 +24,6 @@ opt.smartcase = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
-opt.smarttab = true
 
 -- Files/Backup @ ~/.local/share/nvim
 opt.undofile = true
@@ -163,14 +160,6 @@ require("lazy").setup({
     -- Git integration (keeping vim-fugitive - it's still the best)
     { "tpope/vim-fugitive" },
 
-    -- Commenting (replaces vim-commentary)
-    {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
-    },
-
     -- Undo tree
     { "mbbill/undotree" },
 
@@ -211,14 +200,6 @@ require("lazy").setup({
 -- ----------------------------------------------------------------------------
 -- LSP
 -- ----------------------------------------------------------------------------
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(ev)
-        local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to definition" }))
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Hover info" }))
-    end,
-})
-
 -- Enable servers (uncomment as you install them)
 vim.lsp.enable("pyright")
 -- vim.lsp.enable("ts_ls")
@@ -259,9 +240,6 @@ map("n", "<Leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search buffer
 map("n", "<Leader>g", builtin.git_status, { desc = "Git status" })
 map("n", "<Leader>m", builtin.marks, { desc = "Find marks" })
 
--- Paste without yanking in visual mode
-map("x", "p", '"_dP')
-
 -- Search word under cursor and change with dot
 map("n", "<leader>c", "*``cgn", { desc = "Change word under cursor" })
 
@@ -292,4 +270,4 @@ vim.api.nvim_create_autocmd("FileType", {
 -- :Lazy sync         - Update all plugins
 -- :Telescope         - See all telescope pickers
 -- :checkhealth       - Diagnose issues
--- gc{motion}         - Comment (e.g., gcc for line, gc3j for 3 lines)
+-- gc{motion}         - Comment (built-in, e.g., gcc for line, gc3j for 3 lines)
