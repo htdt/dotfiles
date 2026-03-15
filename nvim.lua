@@ -271,3 +271,5 @@ vim.api.nvim_create_autocmd("FileType", {
 -- :Telescope         - See all telescope pickers
 -- :checkhealth       - Diagnose issues
 -- gc{motion}         - Comment (built-in, e.g., gcc for line, gc3j for 3 lines)
+-- gd                 - Go to definition (built-in on LspAttach)
+-- K                  - Hover info (built-in on LspAttach)
