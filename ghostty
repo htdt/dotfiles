@@ -8,6 +8,7 @@ window-decoration = false
 window-width = 200
 window-height = 60
 fullscreen = true
+term = xterm-256color
 
 # Hide cursor while typing
 mouse-hide-while-typing = true

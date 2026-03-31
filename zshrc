@@ -25,6 +25,18 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 alias clip='xclip -selection clipboard'
 alias v='nvim'
 alias rg='rg --smart-case'
+alias g='git'
+
+alias ls='ls --color=auto'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias lt='ls -ltrh'  # oldest first
+
+gsync() {
+    local remote="${1:?Usage: gsync user@host:/path}"
+    rsync -avz --delete --exclude='.git' --filter=':- .gitignore' . "$remote"
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
