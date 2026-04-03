@@ -33,9 +33,14 @@ alias ll='ls -lh'
 alias la='ls -lAh'
 alias lt='ls -ltrh'  # oldest first
 
-gsync() {
-    local remote="${1:?Usage: gsync user@host:/path}"
+yeet() {
+    local remote="${1:?Usage: yeet user@host:/path}"
     rsync -avz --delete --exclude='.git' --filter=':- .gitignore' . "$remote"
+}
+
+yeeta() {
+    local remote="${1:?Usage: yeeta user@host:/path}"
+    rsync -avz --delete . "$remote"
 }
 
 export NVM_DIR="$HOME/.nvm"
