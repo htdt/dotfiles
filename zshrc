@@ -6,6 +6,8 @@ SAVEHIST=10000
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 
+export PATH="$HOME/.dotnet:$PATH"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.local/share/bob/nvim-bin:$HOME/.local/bin:$PATH"
 

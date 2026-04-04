@@ -1,5 +1,5 @@
-ctg() {
-    local name="${1:?Usage: ctg <name>}"
+ctrp() {
+    local name="${1:?Usage: ctrp <name>}"
     shift
     claude \
         --name "$name" \
@@ -10,8 +10,8 @@ ctg() {
         "$@"
 }
 
-crc() {
-    local name="${1:?Usage: crc <name>}"
+crp() {
+    local name="${1:?Usage: crp <name>}"
     shift
     claude \
         --name "$name" \
@@ -29,10 +29,18 @@ cr() {
         "$@"
 }
 
-ctgl() {
+ct() {
     claude \
         --channels plugin:telegram@claude-plugins-official \
         --settings '{"enabledPlugins":{"telegram@claude-plugins-official":true}}' \
+        "$@"
+}
+
+ctp() {
+    claude \
+        --channels plugin:telegram@claude-plugins-official \
+        --settings '{"enabledPlugins":{"telegram@claude-plugins-official":true}}' \
+        --permission-mode bypassPermissions \
         "$@"
 }
 
@@ -41,10 +49,11 @@ alias cserver='claude remote-control'
 alias cclear='rm -rf ~/.claude/projects/*'
 
 clist() {
-    echo "ctg <name>   - remote-control + telegram + bypassPermissions"
-    echo "crc <name>   - remote-control + bypassPermissions"
+    echo "ctrp <name>  - remote-control + telegram + bypassPermissions"
+    echo "crp <name>   - remote-control + bypassPermissions"
     echo "cr <name>    - remote-control"
-    echo "ctgl         - telegram plugin only"
+    echo "ct           - telegram"
+    echo "ctp          - telegram + bypassPermissions"
     echo "cserver      - claude remote-control server"
     echo "cclear       - wipe claude project memory"
 }
