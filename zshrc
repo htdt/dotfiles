@@ -7,6 +7,8 @@ setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 
 export PATH="$HOME/.dotnet:$PATH"
+export DOTNET_ROOT="$HOME/.dotnet"
+source $HOME/.cargo/env
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.local/share/bob/nvim-bin:$HOME/.local/bin:$PATH"

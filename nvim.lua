@@ -174,6 +174,7 @@ require("lazy").setup({
     -- Treesitter for better syntax highlighting
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "master",
         build = ":TSUpdate",
         opts = {
             ensure_installed = {
