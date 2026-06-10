@@ -67,6 +67,14 @@ Download from https://github.com/ryanoasis/nerd-fonts/releases and extract to `~
 
 ```bash
 ln -sf ~/Documents/dotfiles/nvim.lua ~/.config/nvim/init.lua
-ln -sf ~/Documents/dotfiles/ghostty ~/.config/ghostty/config
+ln -sf ~/Documents/dotfiles/ghostty ~/.config/ghostty/config   # local terminal only
 ln -sf ~/Documents/dotfiles/zshrc ~/.zshrc
+ln -sf ~/Documents/dotfiles/tmux.conf ~/.tmux.conf
 ```
+
+## Per-machine config
+
+`zshrc` is shared across machines. Anything machine-specific (pyenv, project
+venvs, CUDA `LD_LIBRARY_PATH`, tmux auto-attach over SSH, etc.) goes in
+`~/.zshrc.local`, which is sourced near the end of `zshrc` and is **not** tracked
+in this repo. Create it per host.

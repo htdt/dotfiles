@@ -7,6 +7,7 @@ vim.g.maplocalleader = " "
 local opt = vim.opt
 
 -- UI
+opt.termguicolors = true  -- 24-bit RGB (rose-pine needs this); terminal must advertise truecolor
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
