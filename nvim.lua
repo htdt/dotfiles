@@ -176,6 +176,9 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         branch = "master",
+        -- Pinned: master is frozen/legacy; its newer HEAD breaks on recent Neovim
+        -- with "attempt to call method 'range'". This commit is known-good on 0.11.x.
+        commit = "70a9fecaf5aeae70c765d4c51a8038165a91aa06",
         build = ":TSUpdate",
         opts = {
             ensure_installed = {
