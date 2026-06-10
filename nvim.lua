@@ -172,21 +172,27 @@ require("lazy").setup({
         end,
     },
 
-    -- Treesitter for better syntax highlighting
+    -- Treesitter: main branch (the maintained rewrite). The old master branch is
+    -- archived and crashes on recent Neovim ("attempt to call method 'range'").
+    -- main requires Neovim 0.11+ and a different API: install() + a FileType
+    -- autocmd calling vim.treesitter.start() instead of the old highlight.enable.
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master",
-        -- Pinned: master is frozen/legacy; its newer HEAD breaks on recent Neovim
-        -- with "attempt to call method 'range'". This commit is known-good on 0.11.x.
-        commit = "70a9fecaf5aeae70c765d4c51a8038165a91aa06",
+        branch = "main",
+        lazy = false,
         build = ":TSUpdate",
-        opts = {
-            ensure_installed = {
-                "python", "typescript", "javascript", "lua",
-                "vim", "vimdoc", "json", "yaml", "html",
-                "css", "gdscript", "svelte",
-            },
-        },
+        config = function()
+            require("nvim-treesitter").install({
+                "python", "typescript", "javascript", "lua", "vim", "vimdoc",
+                "json", "yaml", "html", "css", "gdscript", "svelte",
+            })
+            -- Enable treesitter highlighting for any buffer whose parser exists.
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function(args)
+                    pcall(vim.treesitter.start, args.buf)
+                end,
+            })
+        end,
     },
 
     -- Which-key to show keybindings

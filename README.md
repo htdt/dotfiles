@@ -22,9 +22,17 @@ sudo apt install curl zsh ripgrep xclip zsh-autosuggestions zsh-syntax-highlight
 # Install bob (neovim version manager)
 curl -fsSL https://raw.githubusercontent.com/MordechaiHadad/bob/master/scripts/install.sh | bash
 
-# Install neovim
+# Install neovim (0.11+ required for nvim-treesitter main branch)
 bob install stable
 bob use stable
+```
+
+### tree-sitter CLI (required by nvim-treesitter `main` branch)
+
+The `main` branch compiles parsers via the `tree-sitter` CLI, so it must be on `PATH`:
+
+```bash
+npm install -g tree-sitter-cli   # or: cargo install tree-sitter-cli
 ```
 
 ### fzf
