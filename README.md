@@ -18,14 +18,27 @@ sudo apt install curl zsh ripgrep xclip zsh-autosuggestions zsh-syntax-highlight
 
 ### Neovim (via bob)
 
-```bash
-# Install bob (neovim version manager)
-curl -fsSL https://raw.githubusercontent.com/MordechaiHadad/bob/master/scripts/install.sh | bash
+bob manages Neovim versions; use it on every machine for a consistent
+update workflow (`bob install stable && bob use stable`).
 
-# Install neovim (0.11+ required for nvim-treesitter main branch)
+Install bob into `~/.local/bin` (no sudo, no cargo needed):
+
+```bash
+cd /tmp
+curl -fLO https://github.com/MordechaiHadad/bob/releases/latest/download/bob-linux-x86_64.zip
+unzip -o bob-linux-x86_64.zip -d bob-dl
+install -m755 "$(find bob-dl -type f -name bob | head -1)" ~/.local/bin/bob
+```
+
+Then install Neovim (0.12+ required for nvim-treesitter main branch):
+
+```bash
 bob install stable
 bob use stable
 ```
+
+The shared `zshrc` puts `~/.local/share/bob/nvim-bin` first on `PATH`, so bob's
+Neovim takes precedence automatically.
 
 ### tree-sitter CLI (required by nvim-treesitter `main` branch)
 
