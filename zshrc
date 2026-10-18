@@ -61,6 +61,14 @@ yeeta() {
     rsync -avz --delete . "$remote"
 }
 
+img() {
+  if [ -n "$TMUX" ]; then
+    chafa -f kitty --passthrough tmux "$@"
+  else
+    chafa -f kitty "$@"
+  fi
+}
+
 # Machine-specific overrides: pyenv/venv on the laptop, CUDA + tmux auto-attach
 # on the GPU box, etc. Sourced last so a machine can override anything above.
 [ -r ~/.zshrc.local ] && source ~/.zshrc.local
